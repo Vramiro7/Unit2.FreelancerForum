@@ -1,4 +1,4 @@
-body{
+/* body{
 	background-color: darkgrey;
 }
 header{
@@ -14,7 +14,7 @@ body > h1 {
 
 section{
 	background-color: skyblue;
-	width: 120px;
+	width: 1000px;
 	border: solid;
 	margin: 10px;
 }
@@ -26,7 +26,6 @@ section > h2 {
 }
 
 #infoContainer {
-	background-color: darkgrey;
 	border: 0;
 	display: flex;
 	flex-direction: row;
@@ -34,5 +33,5 @@ section > h2 {
 }
 
 #occupation{
-	width: 200px;
+	width: 200px; */
 }

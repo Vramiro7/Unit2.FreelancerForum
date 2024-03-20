@@ -9,41 +9,36 @@ const people = [
   { name: "Prof. Goose", price: 72, occupation: "driver" },
 ];
 
-const freelancers = []
+const freelancerList = document.querySelector(`#infoContainer`); // selected the info container section on html
+const maxPeople = 20; // sets max people to 8
 
 
-const addperson = (people, freelancers) => {
-  let index = 0;
-
-  const intervalId = setInterval(() =>{
-    if(index < people.length) {
-      freelancers.push(people[index]); // add a person from the original 
-      index++; //move to next index 
-    } else {
-      clearInterval(intervalId); // stop interval when done 
-    }
-  }, 5000); // 5 seconds 
-}
-
-console.log(freelancers)
 
 
-// const table = document.createElement(`table`)
+// add freelancers to new array for display 
+const addFreelancer = () => {
+  const randomFreelancer = people[Math.floor(Math.random() * people.length)]; // randomizes a freelancer from our state
+  people.push(randomFreelancer) // pushes into freelancers array 
+  if (people.length === maxPeople){ // if max people are reached
+    clearInterval(addFreelancerIntervalId) // clear interval 
+  }
+};
 
-// const tableRows = []
+addFreelancerIntervalId = setInterval(addFreelancer, 5000); // set interval for 5 seconds
+addFreelancer(); 
 
-// for(let i=0; i<people.length; i++) {
-//   const newTr = document.createElement(`tr`)
-//   const tdName = document.createElement(`td`)
-//   const tdOccupation = document.createElement(`td`)
-//   const tdStatrtingPrice = document.createElement(`td`)
-// }
+const render = () => {
+    people.map((person) => {  // map through people 
+      li = document.createElement(`li`);// create li element  
+      newLi = li.innerText =`Name :${person.name} - Price:  ${person.price} - Occupation : ${person.occupation}`;// set innertext to name, price and occupation  
+      freelancerList.replaceChildren(newLi); //ul.replaceChilren with li elements 
+      console.log(newLi)
+  }); 
+};
 
-// const person = people[i];
-// const tableName = tdName.innerText = person.name;
-// const tableOcc = tdOccupation = person.occupation;
-// const tablePrice = tdStartingPrice.innerText = person.price;
+render();
 
-// console.log(person)
+
+
 
 
