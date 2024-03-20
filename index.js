@@ -11,6 +11,7 @@ const people = [
 
 const prices = []
 
+const averageDisplay = document.querySelector(`#averagePrice`);
 const freelancerList = document.querySelector(`#infoContainer`); // selected the info container section on html
 const maxPeople = 20; // sets max people to 8
 
@@ -45,6 +46,7 @@ const render = () => {
       freelancerList.replaceChildren(newLi); //ul.replaceChilren with li elements 
       // console.log(newLi)
   }); 
+
 };
 
 render();
@@ -58,12 +60,16 @@ const getAverage = () => {
   for (let i = 0; i < prices.length; i++){
     sum += prices[i];
   }
-  return sum/prices.lenth 
-
+  return sum/prices.length
 };
 
-console.log(getAverage());
+getAverage();
 
+const renderGetAverage = () => {
+  p = document.createElement(`p`)
+  p.innerText = getAverage
+  averageDisplay.appendChild(p);
+};
 
-
+renderGetAverage();
 
